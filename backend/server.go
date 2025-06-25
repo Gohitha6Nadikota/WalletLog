@@ -38,7 +38,7 @@ func main() {
 
 	srv.Use(extension.Introspection{})
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:5173"},
+		AllowedOrigins:   []string{"https://wallet-log.vercel.app"},
 		AllowCredentials: true,
 		AllowedMethods:   []string{"POST", "GET", "OPTIONS"},
 		AllowedHeaders:   []string{"Authorization", "Content-Type"},
