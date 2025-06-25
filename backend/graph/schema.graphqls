@@ -1,0 +1,73 @@
+type Expense {
+  id: ID!
+  amount: Float!
+  category: String!
+  description: String!
+  date: String!
+  userID: ID!
+}
+
+input NewExpense {
+  amount: Float!
+  category: String!
+  description: String!
+  date: String!
+}
+
+input UpdateExpenseInput {
+  id: ID!
+  amount: Float
+  category: String
+  description: String
+  date: String
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+input RegisterInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Query {
+  hello: String!
+  getExpenses(date: String, category: String): [Expense!]!
+  expenseSummary(startDate: String!, endDate: String!): ExpenseSummary!
+  getExpenseById(id:ID!):Expense
+}
+
+type Mutation {
+  addExpense(input: NewExpense!): Expense!
+  deleteExpense(id: ID!): Boolean!
+  updateExpense(input: UpdateExpenseInput!): Expense
+  register(input: RegisterInput!): AuthPayload!
+  login(input: LoginInput!): AuthPayload!
+}
+
+type CategorySummary {
+  category: String!
+  total: Float!
+}
+
+type ExpenseSummary {
+  totalAmount: Float!
+  totalCount: Int!
+  byCategory: [CategorySummary!]!
+}
+
+
