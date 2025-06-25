@@ -2,8 +2,8 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client/core
 import { setContext } from '@apollo/client/link/context'
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:8080/query',
-})
+  uri: "https://walletlog-ju32.onrender.com/",
+});
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('token')
