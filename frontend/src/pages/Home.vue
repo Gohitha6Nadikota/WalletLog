@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useQuery } from '@vue/apollo-composable'
 import ExpenseCard from './ExpenseCard.vue'
 
-const API_BASE = 'http://localhost:8080/query' 
+const API_BASE = 'https://walletlog-ju32.onrender.com/",' 
 
 const selectedDate = ref('')
 const dateInput = ref(null)
